@@ -1,0 +1,57 @@
+# This function takes in a first name and last name as input and returns them as a formatted full name.
+def FullName(first_name, last_name):
+    return f"{first_name} {last_name}"  # Combines the first name and last name with a space in between.
+
+# This function takes an input string and returns a new string containing every second character.
+def StringAlternative(input_str):
+    return input_str[::2]  # This slices the string to extract every second character starting from the first one.
+
+# This function prompts the user to enter their first name and last name and returns them as a tuple.
+def TakeInputFullName():
+    firstName = input("Enter your first name: ")  # Prompt the user for their first name.
+    lastName = input("Enter your last name: ")    # Prompt the user for their last name.
+    return firstName, lastName  # Return the first name and last name as a tuple.
+
+# This function prompts the user to enter any string and returns the string.
+def TakeInputAlternative():
+    return input("Enter your String: ")  # Prompt the user to enter a string and return it.
+
+# This is the main function that controls the flow of the program.
+def main():
+    # Ask the user to choose an option: 
+    # 1 for Full name, 2 for String Alternative, or 3 for Both.
+    option = int(input("Enter\n 1 for Full name\n 2 for String Alternative \n 3 for Both \n"))
+
+    # If the user selects option 1, generate and display the full name by combining first and last name.
+    if option == 1:
+        firstName, lastName = TakeInputFullName()  # Get the first and last name from the user.
+        fullName = FullName(firstName, lastName)  # Call the FullName function to generate the full name.
+        print(f"Full Name: {fullName}")  # Display the full name.
+
+    # If the user selects option 2, process the alternative string operation on the input string.
+    elif option == 2:
+        InputString = TakeInputAlternative()  # Get the string input from the user.
+        alternative_str = StringAlternative(InputString)  # Call StringAlternative to process the string.
+        print(f"Alternative String: {alternative_str}")  # Display the alternative string (every second character).
+
+    # If the user selects option 3, do both: display the full name and the alternative string of the full name.
+    elif option == 3:
+        firstName, lastName = TakeInputFullName()  # Get the first and last name from the user.
+        fullName = FullName(firstName, lastName)  # Generate the full name using the FullName function.
+        print(f"Full Name: {fullName}")  # Display the full name.
+        alternative_str = StringAlternative(fullName)  # Process the full name to get the alternative string.
+        print(f"Alternative String: {alternative_str}")  # Display the alternative string generated from the full name.
+
+# Call the main function to run the program when it is executed.
+main()
+
+output :
+Enter
+ 1 for Full name
+ 2 for String Alternative 
+ 3 for Both 
+ 3
+Enter your first name:  kasarla 
+Enter your last name:  navya
+Full Name: kasarla  navya
+Alternative String: ksra ay
