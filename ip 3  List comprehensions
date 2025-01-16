@@ -1,0 +1,25 @@
+# Function to convert heights from inches to centimeters using list comprehension
+def ConvertHeightscompreshion(heights):
+    # List comprehension to convert each height in the 'heights' list from inches to centimeters (1 inch = 2.54 cm)
+    # round() is used to round each conversion to two decimal places.
+    return [round(height * 2.54, 2) for height in heights]
+
+# Main function to interact with the user
+def main():
+    # Ask the user to input heights in inches, separated by spaces
+    # input() reads the input as a string
+    # split() splits the string by spaces, turning it into a list of strings
+    # map(float, ...) converts each string in the list into a float (to handle decimal values)
+    # list() converts the map object into a list of floats
+    heights = list(map(float, input("Enter heights (in inches) separated by spaces: ").split()))
+    
+    # Call ConvertHeightscompreshion to convert the heights in inches to centimeters
+    cm_heights = ConvertHeightscompreshion(heights)
+    
+    # Print the converted heights in centimeters
+    print(f"Converted Heights in cm: {cm_heights}")
+
+# Call the main function to run the program
+main()
+output: Enter heights (in inches) separated by spaces: 56 65 76 87
+Converted Heights in cm: [142.24, 165.1, 193.04, 220.98]
