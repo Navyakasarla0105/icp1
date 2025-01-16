@@ -1,0 +1,55 @@
+# This function calculates the word count of words in a given input file and writes both the input content 
+# and the word count result to an output file.
+def WordCount(input_file, output_file):
+    try:
+        # Open the input file for reading ('r') and the output file for writing ('w')
+        with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
+            lines = infile.readlines()  # Read all lines from the input file and store them in a list.
+            WordCount_dict = {}  # Initialize an empty dictionary to store word counts.
+
+            # Print and write the input content to the output file.
+            print("Input:")
+            outfile.write("Input:\n")
+            for line in lines:  # Loop through each line in the input file.
+                print(line.strip())  # Print the current line without leading/trailing whitespace.
+                outfile.write(line)  # Write the current line to the output file.
+
+            print("\nWordCount:")
+            outfile.write("\nWordCount:\n")  # Write a heading "WordCount:" to the output file.
+
+            # Count the occurrences of each word in the input file.
+            for line in lines:  # Loop through each line of the input file.
+                words = line.split()  # Split the line into a list of words.
+                for word in words:  # Loop through each word in the list.
+                    # Update the word count in the dictionary, incrementing the count by 1 for each occurrence.
+                    WordCount_dict[word] = WordCount_dict.get(word, 0) + 1
+
+            # Print and write the word count result to the output file.
+            for word, count in WordCount_dict.items():  # Loop through the dictionary of word counts.
+                output_line = f"{word}: {count}"  # Format the word and its count as "word: count".
+                print(output_line)  # Print the word and its count to the console.
+                outfile.write(output_line + "\n")  # Write the word count result to the output file.
+
+        # After processing, inform the user that the word count has been written to the output file.
+        print(f"\nWord count has been calculated and written to {output_file}.")
+    
+    # Handle the case when the input file doesn't exist.
+    except FileNotFoundError:
+        print(f"Error: The file {input_file} does not exist.")
+
+# Define the input and output file names.
+input_file = "python course.txt"  # Name of the input file to read from.
+output_file = "output.txt"  # Name of the output file to write to.
+
+# Call the WordCount function to calculate the word count and write the results.
+WordCount(input_file, output_file)
+output: Input:
+mobile phones
+auto mobile
+
+WordCount:
+mobile: 2
+phones: 1
+auto: 1
+
+Word count has been calculated and written to output.txt.
