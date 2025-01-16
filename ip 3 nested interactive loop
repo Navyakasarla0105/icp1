@@ -1,0 +1,30 @@
+# Function to convert heights from inches to centimeters
+def CountHeightLoop(heights):
+    cm_heights = []  # Initialize an empty list to store the heights in centimeters
+
+    # Loop through each height in the input list 'heights'
+    for height in heights:
+        # Convert the height from inches to centimeters (1 inch = 2.54 cm)
+        # round() is used to round the result to two decimal places
+        cm_heights.append(round(height * 2.54, 2)) 
+
+    return cm_heights  # Return the list of heights in centimeters
+
+# Main function to interact with the user
+def main():
+    # Ask the user to enter heights in inches (separated by spaces)
+    # input() reads the user input as a string, split() separates it by spaces into a list of strings
+    # map(float, ...) converts each string in the list to a float
+    heights = list(map(float, input("Enter heights (in inches) separated by spaces: ").split()))
+    
+    # Call the CountHeightLoop function to convert the list of heights to centimeters
+    cm_heights = CountHeightLoop(heights)
+    
+    # Print the converted heights in centimeters
+    print(f"Converted Heights in cm: {cm_heights}")
+
+# Call the main function to run the program
+main()
+output:
+Enter heights (in inches) separated by spaces: 34 45 78 23
+Converted Heights in cm: [86.36, 114.3, 198.12, 58.42]
